@@ -4,7 +4,7 @@ class Solution:
 
         top, bot = 0, ROWS - 1
         while top <= bot:
-            row = (top + bot) // 2
+            row = (bot-top) // 2+top
             if target > matrix[row][-1]:
                 top = row + 1
             elif target < matrix[row][0]:
@@ -14,10 +14,10 @@ class Solution:
 
         if not (top <= bot):
             return False
-        row = (top + bot) // 2
+        row = (bot-top) // 2+top
         l, r = 0, COLS - 1
         while l <= r:
-            m = (l + r) // 2
+            m = (r - l) // 2 + l
             if target > matrix[row][m]:
                 l = m + 1
             elif target < matrix[row][m]:
