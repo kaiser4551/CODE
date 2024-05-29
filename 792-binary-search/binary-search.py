@@ -4,7 +4,7 @@ class Solution:
         l,r=0,n
         # mid=(l+r)/2
         while l<=r:
-            mid=(l+r)//2
+            mid=(r-l)//2 +l
             if(target==nums[mid]):
                 return mid
             elif target>nums[mid]:
