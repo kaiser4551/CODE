@@ -19,12 +19,20 @@ class Solution:
         
     #     memo[i]=max(self._rob(nums,memo,i-1),self._rob(nums,memo,i-2)+nums[i])
     #     return memo[i]
+        # n=len(nums)
+        # if n==0:return 0
+        # if n==1:return nums[0]
+        # memo=[-1]*n
+        # memo[0],memo[1]=nums[0],max(nums[1],nums[0])
+        # for i in range(2,n):
+        #     memo[i]=max(memo[i-2]+nums[i],memo[i-1])
+        # return memo[-1]
+        
+
         n=len(nums)
-        if n==0:return 0
-        if n==1:return nums[0]
-        memo=[-1]*n
-        memo[0],memo[1]=nums[0],max(nums[1],nums[0])
-        for i in range(2,n):
-            memo[i]=max(memo[i-2]+nums[i],memo[i-1])
-        return memo[-1]
-    
+
+        prev1=0
+        prev2=0
+        for i in range(n):
+            prev1,prev2=max(prev2+nums[i],prev1),prev1
+        return prev1
