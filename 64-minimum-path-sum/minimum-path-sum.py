@@ -59,4 +59,4 @@ class Solution:
                     grid[i][j]+=min(grid[i][j-1],grid[i-1][j])
         return grid[-1][-1]
                 
-        return curr
+      
